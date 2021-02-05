@@ -1,0 +1,109 @@
+1. 선언
+- 대응관계를 가지고 있는 자료형 ->  배열 or 해시라고 한다.
+- 파이썬은 이러한 대응관계를 가지고있는 자료형을 딕셔너리라 한다.
+- key와 value를 한쌍으로 갖는 자료형이다
+- 순차적으로 x, key값으로 value를 얻는 점이 딕셔너리의 가장 큰 특징
+- {}중괄호로 감싸져 있으며, ,(쉼표)로 구분된다.
+- key는 중복 x, value는 중복 o
+- value에 리스트를 넣을수도 있다.
+* ex) dic = {'name':'pey', 'phone':'01012345678'}
+
+2. 딕셔너리 쌍 추가,삭제하기
+추가
+a = {1:'a'}
+a[2] = b
+a -> {1:'a', 2:'b'}
+
+a['name'] = 'pey'
+a -> {1:'a', 2:'b', 'name':'pey'}
+
+a[3] = [1,2,3]
+a -> {1:'a', 2:'b', 'name':'pey', 3: [1,2,3]}
+
+삭제
+- del함수를 이용해서 del a[key]를 입력하면 지정한 key에 해당하는 value값이 사라진다.
+del a[1]
+a -> {2:'b', 'name':'pey', 3: [1,2,3]}
+
+3. 딕셔너리 사용방법
+- key를 사용해서 value 얻기
+ -> dic[key] -> value
+
+- 동일한 key가 2개 존재할경우 한개가 무시 즉, 사라지므로 조심해야한다.
+- key에 list를 사용할 수 없지만, tuple는 사용할 수 있다.
+ -> list는 값이 변할수있지만, tuple는 값이 변할 수 없으므로 ,,,
+- 딕셔너리의 key로 쓸수 있는지 여부는 값이 변할 수 있는지 유무로 판단가능하다.
+- list를 key에 넣으려고 할 경우, TypeError가 발생한다.
+
+4. 딕셔너리 관련 함수들
+- a.keys() - dict_keys([key목록]) 
+         - disct_keys 객체로 돌려준다.
+         - 파이썬 2.7까지는 dict_keys 타입이 아닌 리스트를 돌려줬는데, 리스트를 돌려주기 위해서는 메모리 낭비가 심하여, 3.0버전 이후부터는 dict_keys객체를 사용하여 돌려준다.
+         - 만약 리스트값으로 필요할시에는 list(a.keys())를 사용하면 된다,.
+         - dict_keys객체를 만듦으로써 dict_keys, dict_values, dict_items를 각각 알아야하게 되었다.
+         
+         - dict_keys 객체는 리스트를 사용하는것과 차이가없지만, 리스트 고유의 append, insert,pop, remove, sort 함수를 사용할 수 없다.
+         - for k in a.keys():
+             print(k)
+            -> 이런형식으로 사용도 가능하다.
+       
+- a.values() - dict_values([value값목록])
+             - key와 마찬가지 방법으로 호출하면 된다.
+             - dict_values 객체로 돌려준다
+             
+- key, values 쌍 모두 얻기(items)
+ - a.itmes()
+  -> dict_items([키,value 목록들])
+  - dict_items객체로 돌려준다,.
+  - dict_keys와 마찬가지로 리스트처럼 사용할 수 있다.
+  
+- key, value 쌍 모두 지우기(clear)
+ - a.clear()
+ 
+- key로 value얻기(get)
+ - a.get(key) -> value
+ - key에 대응하는 value를 돌려준다.
+ - a.get(key) == a[key] 동일한 결과값을 돌려받는다
+ - 존재하지 않는 key를 가지고오려고 할 경우 None가 반환된다.( Error 안남! )
+ - a.get(key, 없을경우 None이 아닌 받고싶은 다른 값)
+ 
+            
+- key가 딕셔너리 안에 있는지 조사하기(in)
+ - key in a
+  -> True, False
+ - key가 존재하면 True, 존재하지않으면 False를 반환한다.
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+

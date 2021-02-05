@@ -1,0 +1,28 @@
+1. 선언
+- a = 1
+- b = "python"
+- c = [1,2,3]
+
+2. 정의
+- 파이썬에서 사용하는 변수는 객체를 가리키는 것
+- 객체 - 우리가 지금껏 보아 온 자료형과 같은 것을 의미하는 말
+* id(a) - a의 메모리 주소값
+
+3. 복사
+- 리스트 자료형의 복사
+ 1. a = [1,2,3]; b=a -> True
+ 2. a = [1,2,3]; b=a[:] -> True
+ 3. from copy import copy; b = copy(a) -> False
+
+4. 변수 선언 방법
+- a, b = ('python', 'life')
+- (a, b) = 'python', 'life'
+ -> 위 두개의 구문은 동일
+
+[a,b] = ['python', 'life']
+a = b = 'python'
+a, b = b, a
+
+
+
+ 

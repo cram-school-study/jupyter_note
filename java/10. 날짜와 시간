@@ -1,0 +1,36 @@
+1.1 Calendar와 Date
+- java.util.Date
+ - 날짜와 시간을 다룰 목적으로 만들어진 클래스(JDK 1.0)
+ - Date의 메서드는 대부분 deprecated(비추천)되었지만, 여전히 쓰이고 있다.
+ 
+- java.util.Calendar
+ - Date클래스를 개선한 클래스(JDK1.1)
+ 
+- java.time패키지
+ - Date와 Calendar의 단점을 개선한 새로운 클래스들을 제공(JDK1.8)
+ 
+1.2 Calendar
+ * java.util.Calendar
+  - 추상 클래스이므로 getInstance()를 통해 구현된 객체를 얻어야 한다.
+ * Date와 Calendar간의 변환
+  - new Date(cal.getTimeInMillis()) - Calendar -> Date
+  - cal.setTime(d) - Date -> Calendar
+1.3 Calendar의 주요 메서드
+ * get()
+ * set()
+ * clear()
+ * add() - 현재날짜에 더하기
+ * roll() - 현재날짜에 더하기이나, 해당한것 위나 아래는 바뀌지않음. 자물쇠 비밀번호 바꾸는것처럼
+ 
+2. 형식화
+
+2.1 DecimalFormat 숫자의 형식화
+ - 숫자를 다양한 형식(패턴)으로 출력할 수 있게 해준다.
+ - 예제 10_6
+ - 특정 형식으로 되어 있는 문자열에서 숫자를 뽑아낼 수도 있다.
+ 
+2.2 SimpleDateFormat 날짜의 형식화
+ - 날짜와 시간을 다양한 형식으로 출력할 수 있게 해준다.
+
+
+

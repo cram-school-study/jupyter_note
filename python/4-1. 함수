@@ -1,0 +1,30 @@
+1. 정의
+- 키워드 파라미터 kwargs
+ -> def print_kwargs(**kwargs):
+ -> 모두 key=value 형태의 딕셔너리로 파라미터를 받는다.
+ 
+2. 함수의 결괏값은 언제나 하나이다.
+def add_and_mul(a,b):
+    return a+b, a*b
+    
+result = add_and_mul(3,4)
+-> result = (7,12)
+result1, result2 = add_and_mul(3,4)
+-> result1, result2 = 7, 12
+
+3. 매개변수에 초깃값 미리 설정하기
+def say_myself(name, old, man=True):
+
+4. 함수 안에서 선언한 변수의 효력 범위
+- 함수 안에서 사용하는 매개변수는 함수 밖의 변수 이름과는 전혀 상관이 없다.
+
+5. 함수 안에서 함수 밖의 변수를 변경하는 방법
+- return 사용하기
+- global 명령어 사용하기
+ -> 함수는 독립적으로 존재하는게 좋기 때문에, 가급적 global 명령어 사용을 피하고, return문을 사용하도록 한다.
+ 
+6. lambda
+- lambda는 함수를 생성할 때 사용하는 예약어로, def와 동일한 역할을 한다.
+ 보통 함수를 한줄로 간결하게 만들 때 사용한다. 우리말로 "람다"라고 읽고 def를 사용해야 할 정도로 복잡하지 않거나, def를 사용할 수 업슨ㄴ 곳에 주로 쓰인다.
+ 
+- lambda 매개변수1, 매개변수2, ... : 매개변수를 이용한 표현식

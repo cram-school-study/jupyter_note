@@ -1,0 +1,32 @@
+1. if문
+- 비교문에 != 사용가능, !값이 사용 불가능
+- 연산자 x or y, x and y, not x와 같은 방식으로 사용 가능
+- x in 리스트, 튜플, 문자열, x not in 리스트, 튜플, 문자열의 방식으로 사용 가능
+- 조건문을 그냥 넘기고싶다면 pass
+- 조건부 표현식(python) - 조건문이 참인경우 if 조건문 else 조건문이 거짓인 경우
+ -> message = "success" if score >= 60 else "failure"
+ 
+
+2. while문
+- int(input)은 사용자의 숫자 입력을 받는것
+- 반복문 빠져나가기 - break
+- 반복문 처음으로 돌아가기 - continue
+
+3. for문
+- 전형적인 for문 
+ -> for 변수 in 리스트,튜플,문자열:
+- 다양한 for문의 활용
+ -> a = [(1,2),(3,4),(5,6)]
+ -> for (first, last) in a:
+ -> 
+
+- range 함수 - 숫자 리스트를 자동으로 만들어주는 함수
+- 리스트 내포
+ -> [표현식 for 항목 in 반복가능객체 if 조건문]
+- 2중 이상 리스트 내포
+ -> [ 표현식 for 항목1 in 반복가능객체1 if 조건문1
+             for 항목2 in 반복가능객체2 if 조건문2
+             ...
+             for 항목n in 반복가능객체n if 조건문n]
+             
+https://dailyheumsi.tistory.com/67

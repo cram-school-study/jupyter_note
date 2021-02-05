@@ -1,0 +1,294 @@
+11. 컬렉션 프레임워크
+
+1.1 컬렉션 프레임워크란?
+- 컬렉션 - 여러 객체를 모아 놓은 것을 의미
+- 프레임워크 - 표준화, 정형화된 체계적인 프로그래밍 방식
+- 컬렉션 프레임워크 - 컬렉션을 다루기 위한 표준화된 프로그래밍 방식
+                    - 컬렉션을 쉽고 편리하게 다룰 수 있는 다양한 클래스를 제공
+                    - java.util패키지에 포함 jdk 1.2부터 제공
+- 컬렉션 클래스 - 다수의 데이터를 저장할 수 있는 클래스 
+                  예) Vector, ArrayList, HashSet
+
+* HashSet - set()
+* arrayList - list()
+* map - 딕셔너리
+
+1.2 컬렉션 프레임워크의 핵심 인터페이스
+인터페이스
+List - 순서가 있는 데이터의 집합, 데이터의 중복을 허용한다.
+     - 구현클래스 - ArrayList, LinedList, Stack, Vector 등 .
+                  - Vector, ArrayList의 차이점
+* List를 사용할때 ArrayList, LinkedList를 다형성으로 변환하여 사용할 수 있기 때문에, LinkedList는 자체적으로 노드값으로 돌아가는 구조이기때문에 for문이 안에 한번 구성이 되어있어서 일반 for문은 속도가 느리고(2번 도는구조), 향상된 for문이 효율적이다. 
+        
+        
+Set - 순서를 유지하지 않는 데이터의 집합, 데이터의 중복을 허용하지 않는다.
+    - 구현 클래스 - HashSet, TreeSet
+Map - 키와 값의 쌍으로 이루어진 데이터의 집합
+    - 순서는 유지되지 않으며, 키는 중복을 허용하지않고, 값은 중복을 허용한다.
+    - HashMap, TreeMap, Hashtable, Properties 등 ..
+* Collection이 구현된건 List, Set
+* 큐 - 링크드리스트
+* DB의 CRUD - C - creation - instance
+            - R - read - contanins
+            - U - update - add????
+            - D - delete - remove
+
+1.3 Collection 인터페이스의 메서드
+- add, remove, size, clear, contains, equals, isEmpty
+- 특정 위치 값 못가져옴????
+
+1.4 List인터페이스의 메서드 - 순서 O, 중복 O
+- Vector는 AbstractList로부터 상속, List로부터 구현 받음
+- add, remove, size, clear, indexof, listlterator, set
+
+* Collection.sort() - 파이썬처럼 사용가능
+* Array - length(), list - size()
+
+1.5 Set()인터페이스 - 순서X, 중복X
+- Set인터페이스 - Collection의 메서드와 동일
+
+1.6 Map()인터페이스의 메서드 - 순서X, 중복(키X, 값O)
+- put, 
+
+
+2.1 Vector와 ArrayList
+- ArrayList는 기존의 Vector를 개선한 것으로 구현원리와 기능적으로 동일
+- Vector는 자체적으로 동기화처리가 되어 있으나, ArrayList는 그렇지 않다.
+- List 인터페이스를 구현하므로, 저장순서가 유지되고 중복을 허용한다.
+- 데이터의 저장공간으로 배열을 사용한다.(배열기반)
+
+2.2 ArrayList의 사용 예
+- ArrayList에는 타입 상관없이 들어감.
+- 지우면서 추출시에 처음부터 돌리면 안되는부분! 잘 확인바람!
+
+2.3 ArrayList에 저장된 객체의 삭제과정
+- 1. ArrayList에 저장된 데이터를 한칸씩 덮어쓴다.
+- 2. 데이터가 모두 한칸씩 위로 복사해서 덮어쓴다.
+- 3. 마지막 데이터는 null을 넣는다.
+- 4. 데이터가 삭제되었으므로, size값을 줄인다.
+* 마지막 데이터를 삭제할 경우, 1번 과정은 필요가 없다.
+
+2.4 Vector의 크기(size)와 용량(capacity)
+- capacity - 빈값 포함의 총 공간
+- size - 빈값 제외의 값이 들어가있는 공간
+- ensureCpapcity - cppacity 값 수정
+- setsize - size 값 수정
+- clear - 전체 size 값 제거, capacity는 그대로 남음
+
+2.5 Vector를 직접 구현하기.
+
+2.6 ArrayList의 장점과 단점
+- 장점 - 배열은 구조가 간단하고 데이터를 읽는 데 걸리는 시간(접근시간, access time)이 짧다
+- 단점 - 크기를 변경할 수 없다. - 크기를 변경할 경우 새로운 배열을 생성 후 복사해야한다.
+                                - 크기 변경을 피하기위해 큰 배열을 미리 생성하면 메모리 낭비
+       - 비순차적인 데이터의 추가, 삭제에 시간이 많이 걸린다
+         -> 데이터를 추가하거나, 삭제하기위해 다른 데이터를 옮겨야함.
+         -> 그러나 끝에 추가와 끝부터 삭제는 빠르다.
+         
+3.1 LinkedList - 배열의 단점을 보완
+- 배열과 달리 링크드 리스트는 불연속적으로 존재하는 데이터를 연결(link)
+- 데이터의 삭제 - 단 한번의 참조변경만으로 간으
+- 데이터의 추가 - 한번의 Node객체 생성과 두번의 참조변경으로 가능
+- 상속관계 - 리스트, 데크를 구현받고있음,
+* 데크는 큐를 상속받고있다.
+
+3.2 LinkedList - 이중 연결 리스트
+- 링크드 리스트 - 연결리스트, 데이터의 접근성이 나쁨
+- 더블리 링크드 리스트 - 이중 연결리스트, 접근성 향상
+- 더블리 써큘러 링크드 리스트 - 이중 원형 연결리스트
+
+3.3 ArrayList vs LinkedList - 성능 비교
+- 순차적으로 데이터를 추가/삭제 - ArrayList가 빠름
+- 비순차적으로 데이터를 추가/삭제 - LinkedList가 빠름
+- 접근시간 - ArrayList가 빠름
+
+4.1 스택과 큐 (Stack & Queue)
+- 스택 - LIFO구조, 마지막에 저장된 것을 제일 먼저 꺼내게 된다.
+       - push, pop, peek, empty
+       - Vector의 구현 받음
+       - stack은 Vector의 구현을 받기때문에 isempty도 있지만, Stack은 jdk1.0, Collection 클래스는 jdk1.2버전에 생겼기 때문에, 같은 기능에 이름만 다르다.
+- 큐 - FIFO구조, 제일 먼저 저장한 것을 제일 먼저 꺼내게 된다.
+     - offer, poll, peek, isempty
+     - Collection의 구현 받음 , LinkedList 구현받은듯?
+  
+4.2 Queue의 변형 - Deque, PriorityQueue, BlockingQueue
+- 데크(Deque) - Stack과 Queue의 결합, 양쪽에서 저장(offer)과 삭제(pool) 가능
+- 우선순위 큐(PriorityQueue) - 우선순위가 높은것부터 꺼냄
+- 블랑킹 큐(BlockingQueue) - 멀티 쓰레드
+
+5.1 Enumeration, Iterator, ListIterator
+- 컬렉션에 저장된 데이터를 접근하는데 사용되는 인터페이스
+- Enumeration은 Iterator의 구버전
+- Listlterator는 Iterator의 접근성을 향상 시킨것 (단방향 -> 양방향)
+
+5.2 Iterator
+- 컬렉션에 저장된 요소들을 읽어오는 방법을 표준화한 것
+- 컬렉션에 iterator()를 호출해서 Iterator를 구현한 객체를 얻어서 사용
+
+5.3 ListIterator - Iterator의 기능을 확장(상속)
+- Iterator의 접근성을 향상시킨 것이 ListIterator이다.(단방향 -> 양방향)
+- listIterator()를 통해서 얻을 수 있다. (List를 구현한 컬렉션 클래스에 존재)
+
+6.1 Arrays - 배열을 다루기 편리한 메서드 제공
+- 배열의 출력 - toString()
+- 다차원 배열의 비교와 출력 - deepEquals(), deepToString(), equals()
+
+* 다차원 배열 출력 - deepToString(), 1차원배열 출력 - toString()
+* equals() - a.equals(b) - 배열의 객체 주소가 같은지 비교
+           - Arrays.eqauls(a,b) - 1차원 배열의 내부 값이 같은지 비교
+           - Arrays.deepEquals(a,b) - 재귀로 2차원 배열이상일 경우 내부 값 비교
+           * String이 참조변수이면서 a.equals(b)가 값이 비교되는게 특이한 것이다.
+
+- 배열의 복사 - copyOf(), copyOfRange()
+- 배열 채우기 - fill(), setAll()
+- 배열을 List로 변환 - asList(Object... a)
+- 배열의 정렬과 검색 - sort(), binarySearch()
+
+6.2 Comparator와 Comparable - 요 두개가 각각 1개씩 메서드를 가지는것인지????
+- 객체를 정렬하는데 필요한 메서드를 정의한 인터페이스(정렬기준을 제공)
+ - Comparable - 기본 정렬기준을 구현하는데 사용.
+ - Comparator - 기본 정렬긴 외에 다른 기준으로 정렬하고자할 때 사용
+              - 주로 내림차순으로 정렬할때 사용한다.
+* Arrays.sort() - 배열, 새로 정의한 클래스에 대한 배열, 기본 자료형에 대한 배열의 정렬
+  Collections.sort() - ArrayList, LinkedList, Vector등을 정렬할때 사용
+              
+ 
+- compare()와 compareTo()는 두 객체의 비교결과를 반환하도록 작성
+ 같으면 0, 오른쪽이 크면 음수(-), 작으면 양수(+)
+ 
+7.1 HashSet과 TreeSet - 순서 x, 중복 x
+HashSet
+- Set 인터페이스를 구현한 대표적인 컬렉션 클래스
+- 순서를 유지하려면, LinkedHashSet클래스를 사용하면 된다.
+
+TreeSet
+- 범위 검색과 정렬에 유리한 컬렉션 클래스
+- HashSet보다 데이터 추가,삭제에 시간이 더 걸림
+
+7.2 HashSet - boolean add(Object o)
+- HashSet은 객체를 저장하기전에 기존에 같은 객체가 있는지 확인한다.
+  같은 객체가 없으면 저장하고, 있으면 저장하지 않는다.
+- boolean add(Object o)는 저장할 객체의 equals()와 hashCode()를 호출
+  equals()와 hashCode()가 오버라이딩 되어 있어야 함.
+
+7.3 HashSet - HashCode()의 오버라이딩 조건
+- 동일 객체에 대해 hashCode()를 여러 번 호출해도 동일한 값을 반환해야 한다.
+- equals()로 비교해서 true를 얻은 두 객체의 hashCode()값은 일치해야 한다.
+* equals()로 비교한 결과가 false인 두 객체의 hashCode()값이 같을 수도 있다.
+ 그러나 성능 향상을 위해 가능하면 서로 다른값을 반환하도록 작성하자.
+ 
+7.4 TreeSet - 범위 검색과 정렬에 유리
+- 범위 검색과 정렬에 유리한 이진 검색 트리(binary search tree)로 구현
+- 링크드 리스트처럼 각 요소(node)가 나무(tree)형태로 연결된 구조
+- 이진 트리는 모든 노드가 최대 두 개의 하위 노드를 갖음(부모-자식관계)
+- 이진 검색 트리는 부모보다 작은 값을 왼쪽에, 큰 값은 오른쪽에 저장
+- HashSet보다 데이터 추가, 삭제에 시간이 더 걸림(반복적인 비교 후 저장)
+
+* 이진트리 - 모든 내부 node들이 둘 이하의 자식 node를 갖는 나무 
+           - 노드가 하나도 없는 공집합이거나, root node를 기준으로 왼쪽 이진나무 
+           - 오른쪽 이진나무로 이루어진 집합
+
+7.5 TreeSet - 데이터 저장과정 boolean add(Object o)
+7.6 TreeSet - 주요 생성자와 메서드
+ - first()
+ - last()
+.... - 한번 구현해보거나 예제를 볼 필요성이 있어보임
+
+7.7 TreeSet - 범위검색 subSet(), headSet(), tailSet()
+7.8 TreeSet - 트리 순회(전위, 중위, 후위)
+- 이진 트리의 모든 노드를 한번ㅆ끼 읽는 것을 트리 순회라고 한다.
+- 전위, 중위, 후위 순회법이 있으며, 중위 순회하면 오름차순으로 정렬된다.
+- 전위 - root - left - right
+- 중위 - left - root - right
+- 후위 - left - right - root
+
+8.1 HashMap과 TreeMap - 순서 x, 중복(키 x, 값 o)
+- Map 인터페이스를 구현, 데이터를 키와 값의 쌍으로 저장
+- HashMap(동기화x)은 Hashtable(동기화o)의 신버전
+
+HashMap
+- Map 인터페이스를 구현한 대표적인 컬렉션 클래스
+- 순서를 유지하려면, LinkedHashMap클래스를 사용하면 된다.
+
+TreeMap
+- 범위 검색과 정렬에 유리한 컬렉션 클래스
+- HashMap보다 데이터 추가, 삭제에 시간이 더 걸림
+
+8.2 HashMap
+- 해싱기법으로 데이터를 저장, 데이터가 많아도 검색이 빠르다.
+- Map 인터페이스를 구현, 데이터를 키와 값의 쌍으로 저장
+
+메서드 목록
+- put, replace, remove, clear, get, enrtySet, keySet
+* 파이썬과의 차이점
+ 파이썬 - 딕셔너리,item, 자바 - 맵,entry 
+ 
+
+8.3 해싱(hashing)
+- 해시테이블에 저장된 데이터를 가져오는 과정
+1. 키로 해시함수를 호출해서 해시코드를 얻는다.
+2. 해시코드에 대응하는 링크드리스트를 배열에서 찾는다.
+3. 링크드리스트에서 키와 일치하는 데이터를 찾는다.
+* 해시함수는 같은 키에 대해 항상 같은 해시코드를 반환해야 한다.
+  서로 다른 키일지라도 같은 값의 해시코드를 반환할 수도 있다.
+
+8.4 TreeMap
+- 이진 검색 트리의 구조로 키와 값의 쌍으로 이루어진 데이터를 저장
+- TreeSet처럼, 데이터를 정렬(키)해서 저장하기 때문에 저장시간이 길다.
+ (TreeSet은 TreeMap을 이용해서 구현되어 있음)
+- 다수의 데이터에서 개별적인 검색은 TreeMap보다 HashMap이 빠르다.
+- Map이 필요할 때 주로 HashMap을 사용하고, 정렬이나 범위검색이 필요한 경우에 TreeMap을 사용
+
+
+9.1 Properties
+- 내부적으로 Hashtable을 사용하며, key와 value를 (String, String)로 저장
+- 주로 어플리케이션의 환경설정에 관련된 속성을 저장하는데 사용되며, 파일로부터 편리하게 값을 읽고 쓸수 있는 메서드를 제공한다.
+
+9.2 Properties - 예제
+
+9.3 Collections - 컬렉션을 위한 메서드를 제공
+- 컬렉션 채우기, 복사, 정렬, 검색 - 
+- 컬렉션의 동기화 - synchronizedXXX()
+ ex) List sysncList = Collections.synchronizedList(new ArrayList(...));
+- 변경불가(readOnly) - 컬렉션 만들기 - unmodifiableXXX()
+ ex) static Collection unmodifiableCollection(Collection c)
+- 싱글톤 컬렉션 만들기 - singletonXXX()
+                       - 인스턴스를 1개만 만들어질수 있게 할경우
+ ex) static List,Set,Map singletonMap(Object key, Object value)  
+                    
+- 한 종류의 객체만 저장하는 컬렉션 만들기 - checkedXXX()
+                                          - 저장시 한 종류의 객체만 저장하는 컬렉션 만들기
+ ex) List checkedList = checkedList(list, String.class)
+                                          
+9.4 컬렉션 클래스 정리 & 요약
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
